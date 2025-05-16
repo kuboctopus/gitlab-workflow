@@ -34,7 +34,7 @@ jobs:
         run: |
           mkdir nonprod
           cp base.css nonprod/
-          cp images nonprod/
+          cp -r images nonprod/
           cp engine.js nonprod/
           cp game.js nonprod/
           cp game.manifest nonprod/
