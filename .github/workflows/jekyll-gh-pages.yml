@@ -33,12 +33,28 @@ jobs:
       - name: Move files
         run: |
           mkdir nonprod
-          cp base.css nonprod/
-          cp -r images nonprod/
-          cp engine.js nonprod/
-          cp game.js nonprod/
-          cp game.manifest nonprod/
-          cp index.html nonprod/
+          mv base.css nonprod/
+          mv -r images nonprod/
+          mv engine.js nonprod/
+          mv game.js nonprod/
+          mv game.manifest nonprod/
+          mv index.html nonprod/
+      - name: Fetch Prod files
+        run: | 
+          mkdir prod
+          mkdir prod/images
+          git show prod:base.css > prod/base.css
+          git show prod:images/sprites.png > prod/images/sprites.png
+          git show prod:engine.js > prod/engine.js
+          git show prod:game.js > prod/game.js
+          git show prod:game.manifest > prod/game.manifest
+          git show prod:index.html > prod/index.html
+      - name: Fetch GitHub Pages Link
+        run: echo "URL=https://${GITHUB_REPOSITORY_OWNER}.github.io/${GITHUB_REPOSITORY_NAME}" >> $GITHUB_ENV
+      - name: Add Index.md
+        run: |
+          mv .github/statics/index.md index.md
+          sed -i "s|PLACEHOLDER_URL|$URL|g" index.md
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
