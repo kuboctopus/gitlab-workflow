@@ -34,7 +34,7 @@ jobs:
         run: |
           mkdir nonprod
           mv base.css nonprod/
-          mv -r images nonprod/
+          mv images nonprod/
           mv engine.js nonprod/
           mv game.js nonprod/
           mv game.manifest nonprod/
