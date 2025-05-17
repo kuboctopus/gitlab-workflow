@@ -46,6 +46,7 @@ jobs:
           mkdir prod
           mkdir prod/images
           git checkout -b prod origin/prod
+          git switch nonprod
           git show prod:base.css > prod/base.css
           git show prod:images/sprites.png > prod/images/sprites.png
           git show prod:engine.js > prod/engine.js
