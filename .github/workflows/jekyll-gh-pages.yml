@@ -41,6 +41,8 @@ jobs:
           mv game.js nonprod/
           mv game.manifest nonprod/
           mv index.html nonprod/
+      - name: Get Branch
+        run: git branch -a
       - name: Fetch Prod files
         run: | 
           mkdir prod
