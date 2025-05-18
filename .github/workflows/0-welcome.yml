@@ -13,9 +13,8 @@ on:
 
 # Reference: https://docs.github.com/en/actions/security-guides/automatic-token-authentication
 permissions:
-  # Need `contents: read` to checkout the repository.
-  # Need `contents: write` to update the step metadata.
   contents: write
+  pull-requests: write
 
 jobs:
   # Get the current step to only run the main job when the learner is on the same step.
@@ -52,51 +51,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Let's get all the branches.
+          fetch-depth: 0
 
-      - name: Prepare a branch
-        run: |
-          echo "Make sure we are on step 0"
-          if [ "$(cat .github/steps/-step.txt)" != 0 ]
-          then
-            echo "Current step is not 0"
-            exit 0
-          fi
-
-          echo "Make a branch"
-          NONPROD_BRANCH=nonprod
-          git checkout -b $NONPROD_BRANCH
-
-          git switch main
-          PROD_BRANCH=prod
-          git checkout -b $PROD_BRANCH
-          
-          git switch main
-          FEATURE_BRANCH=update-game
-          git checkout -b $FEATURE_BRANCH
-
-          echo "Update index.html"
-          sed -i.bak 's/Game over/Game over, refresh to play again 🧑‍💻 🤖!/' index.html
-
-          echo "Make a commit"
-          git config user.name github-actions[bot]
-          git config user.email github-actions[bot]@users.noreply.github.com
-          git add index.html
-          git commit --message="Update game over message"
-
-          echo "Push"
-          git push --set-upstream origin $NONPROD_BRANCH
-          git push --set-upstream origin $PROD_BRANCH
-          git push --set-upstream origin $FEATURE_BRANCH
-
+      # Create a release-v1.0 branch.
+      - name: Initialize repository
+        run: ./.github/script/initialize-repository.sh
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # In README.md, switch step 0 for step 1.
+      # Update README from step 0 to step 1.
       - name: Update to step 1
         uses: skills/action-update-step@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           from_step: 0
           to_step: 1
-          branch_name: update-game
