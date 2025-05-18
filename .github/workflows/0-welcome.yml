@@ -67,9 +67,11 @@ jobs:
           NONPROD_BRANCH=nonprod
           git checkout -b $NONPROD_BRANCH
 
+          git switch main
           PROD_BRANCH=prod
           git checkout -b $PROD_BRANCH
-
+          
+          git switch main
           FEATURE_BRANCH=update-game
           git checkout -b $FEATURE_BRANCH
 
@@ -83,6 +85,8 @@ jobs:
           git commit --message="Update game over message"
 
           echo "Push"
+          git push --set-upstream origin $NONPROD_BRANCH
+          git push --set-upstream origin $PROD_BRANCH
           git push --set-upstream origin $FEATURE_BRANCH
 
         env:
