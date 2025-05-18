@@ -4,7 +4,7 @@ name: Deploy Jekyll with GitHub Pages dependencies preinstalled
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ["nonprod", "prod"]
+    branches: ["prod"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -34,25 +34,25 @@ jobs:
         uses: actions/configure-pages@v5
       - name: Move files
         run: |
-          mkdir nonprod
-          mv base.css nonprod/
-          mv images nonprod/
-          mv engine.js nonprod/
-          mv game.js nonprod/
-          mv game.manifest nonprod/
-          mv index.html nonprod/
-      - name: Fetch Prod files
-        run: | 
           mkdir prod
-          mkdir prod/images
-          git checkout -b prod origin/prod
+          mv base.css prod/
+          mv images prod/
+          mv engine.js prod/
+          mv game.js prod/
+          mv game.manifest prod/
+          mv index.html prod/
+      - name: Fetch Nonprod files
+        run: | 
+          mkdir nonprod
+          mkdir nonprod/images
+          git checkout -b nonprod origin/nonprod
           git switch nonprod
-          git show prod:base.css > prod/base.css
-          git show prod:images/sprites.png > prod/images/sprites.png
-          git show prod:engine.js > prod/engine.js
-          git show prod:game.js > prod/game.js
-          git show prod:game.manifest > prod/game.manifest
-          git show prod:index.html > prod/index.html
+          git show nonprod:base.css > nonprod/base.css
+          git show nonprod:images/sprites.png > nonprod/images/sprites.png
+          git show nonprod:engine.js > nonprod/engine.js
+          git show nonprod:game.js > nonprod/game.js
+          git show nonprod:game.manifest > nonprod/game.manifest
+          git show nonprod:index.html > nonprod/index.html
       - name: Fetch GitHub Pages Link
         run: |
           REPO_NAME=$(echo "${{ GITHUB.REPOSITORY }}" | sed 's/^.*\///')
