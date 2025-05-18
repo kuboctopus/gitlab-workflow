@@ -32,7 +32,7 @@ GitHub リリースを使用すると、チームはプロジェクトの履歴�
 
 <!-- For start course, run in JavaScript:
 'https://github.com/new?' + new URLSearchParams({
-  template_owner: 'skills',
+  template_owner: 'kuboctopus',
   template_name: 'release-based-gitlab-workflow',
   owner: '@me',
   name: 'skills-release-based-gitlab-workflow',
@@ -41,7 +41,7 @@ GitHub リリースを使用すると、チームはプロジェクトの履歴�
 }).toString()
 -->
 
-[![start-course](https://user-images.githubusercontent.com/1221423/235727646-4a590299-ffe5-480d-8cd5-8194ea184546.svg)](https://github.com/new?template_owner=skills&template_name=release-based-gitlab-workflow&owner=%40me&name=skills-release-based-gitlab-workflow&description=My+clone+repository&visibility=public)
+[![start-course](https://user-images.githubusercontent.com/1221423/235727646-4a590299-ffe5-480d-8cd5-8194ea184546.svg)](https://github.com/new?template_owner=kuboctopus&template_name=release-based-gitlab-workflow&owner=%40me&name=skills-release-based-gitlab-workflow&description=My+clone+repository&visibility=public)
 
 1. 右クリックしてコースを開始し、新しいタブでリンクを開きます。
 2. 新しいタブでは、ほとんどのプロンプトが自動的に入力されます。
