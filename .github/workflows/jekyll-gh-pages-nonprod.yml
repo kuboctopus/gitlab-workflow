@@ -4,7 +4,7 @@ name: Deploy Jekyll with GitHub Pages dependencies preinstalled
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ["main"]
+    branches: ["nonprod"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -28,8 +28,39 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Setup Pages
         uses: actions/configure-pages@v5
+      - name: Move files
+        run: |
+          mkdir nonprod
+          mv base.css nonprod/
+          mv images nonprod/
+          mv engine.js nonprod/
+          mv game.js nonprod/
+          mv game.manifest nonprod/
+          mv index.html nonprod/
+      - name: Fetch Prod files
+        run: | 
+          mkdir prod
+          mkdir prod/images
+          git checkout -b prod origin/prod
+          git switch nonprod
+          git show prod:base.css > prod/base.css
+          git show prod:images/sprites.png > prod/images/sprites.png
+          git show prod:engine.js > prod/engine.js
+          git show prod:game.js > prod/game.js
+          git show prod:game.manifest > prod/game.manifest
+          git show prod:index.html > prod/index.html
+      - name: Fetch GitHub Pages Link
+        run: |
+          REPO_NAME=$(echo "${{ GITHUB.REPOSITORY }}" | sed 's/^.*\///')
+          echo "URL=https://${GITHUB_REPOSITORY_OWNER}.github.io/${REPO_NAME}">> $GITHUB_ENV
+      - name: Add Index.md
+        run: |
+          mv .github/statics/index.md index.md
+          sed -i "s|PLACEHOLDER_URL|$URL|g" index.md
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
