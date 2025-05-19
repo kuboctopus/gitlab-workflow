@@ -8,7 +8,7 @@
 GitLabフローでは、各環境ブランチと各環境のデプロイを対応付けすることがあります。このコースでは、GitHub Pagesの`/nonprod`以下がnonprodブランチと対応し、`/prod`以下がprodブランチに対応するようにデプロイされます。
 
 GitHub Pagesがデプロイされたことを確認します。
-URLは`{{オーナー名}}.github.io/{{リポジトリ名}}`です。例えば、オーナー名が`kubota`、リポジトリ名が`skills-gitlab-workflow`の場合、GitHub PagesのURLは`https://kubota.github.io/skills-github-workflow`となります。
+URLは`{{オーナー名}}.github.io/{{リポジトリ名}}`です。例えば、オーナー名が`kubota`、リポジトリ名が`skills-gitlab-workflow`の場合、GitHub PagesのURLは`https://kubota.github.io/skills-gitlab-workflow`となります。
 
 （背景が更新されていない場合、一度タブを閉じて再度Pagesを開いてください。）
 
