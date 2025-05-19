@@ -19,6 +19,12 @@ GitLabフローは柔軟なブランチ戦略が特徴です。環境毎のブ�
 1. リポジトリ名の下にある「設定」をクリックします。
 2. 「コードと自動化」セクションの「Pages」をクリックします。
 3. 「ソース」ドロップダウンメニューから「GitHub Actions」を選択します。
+4. 「コードと自動化」セクションの「Environments」をクリックします。
+5. 「github-pages」をクリックします。
+6. 「Add deployment branch or tag rule」をクリックします。
+7. Name patternに「nonprod」を入力し、「Add rule」をクリックします。
+8. 「Add deployment branch or tag rule」をクリックします。
+9. Name patternに「prod」を入力し、「Add rule」をクリックします。
 
 ## ⌨️ やること: base.cssを修正する
 
