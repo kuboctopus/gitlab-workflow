@@ -4,7 +4,7 @@ _GitLabフローを基礎として構築されたリリースベースのワー�
 
 ## ようこそ
 
-GitLabフローを基盤として、リリースベースのワークフローを作成しましょう。
+GitLabフローを基盤として、GitLabフローを元にリポジトリを修正しましょう。
 チームでリリースベースのワークフローを使用すると、GitHub はプロジェクトのデプロイ可能なイテレーションを容易に共同作業できる環境を提供します。
 これらのイテレーションをパッケージ化し、より幅広いユーザーがダウンロードして使用できるようにすることができます。
 
@@ -33,15 +33,15 @@ GitHub リリースを使用すると、チームはプロジェクトの履歴�
 <!-- For start course, run in JavaScript:
 'https://github.com/new?' + new URLSearchParams({
   template_owner: 'kuboctopus',
-  template_name: 'release-based-gitlab-workflow',
+  template_name: 'gitlab-workflow',
   owner: '@me',
-  name: 'skills-release-based-gitlab-workflow',
+  name: 'skills-gitlab-workflow',
   description: 'My clone repository',
   visibility: 'public',
 }).toString()
 -->
 
-[![start-course](https://user-images.githubusercontent.com/1221423/235727646-4a590299-ffe5-480d-8cd5-8194ea184546.svg)](https://github.com/new?template_owner=kuboctopus&template_name=release-based-gitlab-workflow&owner=%40me&name=skills-release-based-gitlab-workflow&description=My+clone+repository&visibility=public)
+[![start-course](https://user-images.githubusercontent.com/1221423/235727646-4a590299-ffe5-480d-8cd5-8194ea184546.svg)](https://github.com/new?template_owner=kuboctopus&template_name=gitlab-workflow&owner=%40me&name=skills-gitlab-workflow&description=My+clone+repository&visibility=public)
 
 1. 右クリックしてコースを開始し、新しいタブでリンクを開きます。
 2. 新しいタブでは、ほとんどのプロンプトが自動的に入力されます。
