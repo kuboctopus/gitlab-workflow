@@ -18,11 +18,6 @@ push_empty_branch() {
     git push --set-upstream origin $BRANCH_NAME
 }
 
-echo "release branch"
-RELEASE_BRANCH=release-v1.0
-create_branch $RELEASE_BRANCH
-push_empty_branch $RELEASE_BRANCH
-
 echo "nonprod branch"
 NONPROD_BRANCH=nonprod
 create_branch $NONPROD_BRANCH
