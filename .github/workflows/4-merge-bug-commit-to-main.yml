@@ -1,4 +1,4 @@
-name: Step 1, Add feature to main branch
+name: Step 4, Merge bug commit to main
 
 # This will run when a change to base.css is pushed to the main branch.
 # Reference: https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows
