@@ -46,7 +46,7 @@ jobs:
       ${{ !github.event.repository.is_template
           && needs.get_current_step.outputs.current_step == 6
           && github.event.pull_request.merged == true
-          && github.head_ref == 'hotfix/fix-game-background' }}
+          && github.head_ref == 'main' }}
 
     # We'll run Ubuntu for performance instead of Mac or Windows.
     runs-on: ubuntu-latest
