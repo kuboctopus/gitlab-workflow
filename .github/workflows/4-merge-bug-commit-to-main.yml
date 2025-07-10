@@ -56,10 +56,9 @@ jobs:
           git checkout nonprod
           git config user.name github-actions[bot]
           git config user.email github-actions[bot]@users.noreply.github.com
-          sed -i 's/3/5' .github/steps/-step.txt
-          mv .github/steps/5-merge-bug-commit-to-nonprod.md README.md
-          git add .github/steps/-step.txt
-          git add README.md
+          sed -i 's/3/5/' .github/steps/-step.txt
+          cp -p .github/steps/5-merge-bug-commit-to-nonprod.md README.md
+          git add .
           git commit --message="Update step in my-resume"
           echo "Push"
           git push origin nonprod
