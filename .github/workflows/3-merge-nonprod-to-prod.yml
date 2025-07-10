@@ -33,7 +33,7 @@ jobs:
 
     # We will only run this action when:
     # 1. This repository isn't the template repository.
-    # 2. The step is currently 2.
+    # 2. The step is currently 3.
     # Reference: https://docs.github.com/en/actions/learn-github-actions/contexts
     # Reference: https://docs.github.com/en/actions/learn-github-actions/expressions
     if: >-
@@ -50,8 +50,8 @@ jobs:
         with:
           fetch-depth: 0
 
-      # Update README from step 2 to step 3.
-      - name: Update to step 2
+      # Update README from step 3 to step 4.
+      - name: Update to step 3
         uses: skills/action-update-step@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
