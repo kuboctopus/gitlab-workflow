@@ -50,8 +50,21 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+      - name: Prepare Merge
+        run: |
+          echo "Manually update step in nonprod to match step in main branch"
+          git checkout nonprod
+          git config user.name github-actions[bot]
+          git config user.email github-actions[bot]@users.noreply.github.com
+          sed -i 's/3/5' .github/steps/-step.txt
+          mv .github/steps/5-merge-bug-commit-to-nonprod.md README.md
+          git add .github/steps/-step.txt
+          git add README.md
+          git commit --message="Update step in my-resume"
+          echo "Push"
+          git push origin nonprod
 
-      # Update README from step 2 to step 3.
+      # Update README from step 4 to step 5.
       - name: Update to step 4
         uses: skills/action-update-step@v2
         with:
