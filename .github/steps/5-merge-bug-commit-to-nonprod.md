@@ -9,6 +9,11 @@
 - Updated game text color to green
 ```
 1. プルリクエストを作成します。
+2. `README.md` がコンフリクトを起こすためコンフリクトを解消します。
+   - Resolve conflictsをクリックします
+   - 現在の `README.md`と同じになるように文章を修正します。
+4. 「Mark as resolved」 をクリックします。
+5. 「Commit merge」をクリックします。
 
 ## ⌨️ やること: プルリクエストをマージする
 
