@@ -53,8 +53,8 @@ jobs:
       # Update README from step 2 to step 3.
       - name: Update to step 2
         uses: skills/action-update-step@v2
-        branch_name: nonprod
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           from_step: 2
           to_step: 3
+          branch_name: nonprod
